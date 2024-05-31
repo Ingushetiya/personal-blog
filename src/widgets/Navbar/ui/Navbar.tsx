@@ -8,7 +8,6 @@ export interface NavbarProps {
 export function Navbar({className}: NavbarProps) {
   return (
     <div className={classNames(cls.navbar, {}, [className])}>
-        <ThemeSwitcher />
 
     </div>
   )
