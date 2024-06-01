@@ -9,15 +9,15 @@ import { buildPlugins } from "./buildPlugins"
 import { buildDevServer } from "./buildDevServer"
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
-    const { mode, paths } = options
+    const { mode, paths, isDev } = options
    return {
         mode,
         
         entry: paths.entry,
 
-        devtool: 'inline-source-map',
+        devtool: isDev ? 'inline-source-map' : undefined,
         
-        devServer: buildDevServer(options),
+        devServer: isDev ? buildDevServer(options) : undefined,
         output: {
           filename: '[name].[contenthash].js',
           path: paths.build,
@@ -27,9 +27,9 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         resolve: buildResolvers(options),
       
         module: {
-          rules: buildLoaders(),
+          rules: buildLoaders(options),
         },
 
-        plugins: buildPlugins(paths),
+        plugins: buildPlugins(options),
       } 
 }
