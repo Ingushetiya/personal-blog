@@ -1,5 +1,8 @@
 {
     "привет":"text translation", 
     "перевод":"translate",
-    "язык":"language"
+    "язык":"language",
+    "Страница не найдена":"Page not found",
+    "Произошла непредвиденная ошибка":" An unexpected error occurred",
+    "Обновить страницу":"Refresh page"
 }

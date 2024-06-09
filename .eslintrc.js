@@ -1,4 +1,5 @@
 module.exports = {
+  ignoer:['.git', 'node_modules', "**/routeConfig.tsx"],
   env:{
     browser: true,
     es2021: true
